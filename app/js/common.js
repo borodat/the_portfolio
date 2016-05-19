@@ -1,4 +1,4 @@
-$(function() {
+ $(function() {
 
 	//nav Scroll
 	//Animation lib
