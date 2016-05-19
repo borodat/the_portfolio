@@ -1,11 +1,11 @@
 var     gulp         = require('gulp'),
         sass         = require('gulp-sass'),
         autoprefixer = require('gulp-autoprefixer'),
-        minifycss    = require('gulp-minify-css'),
+        cleanCSS    = require('gulp-clean-css'),
         rename       = require('gulp-rename'),
         browserSync  = require('browser-sync').create(),
         concat       = require('gulp-concat'),
-        uglify       = require('gulp-uglifyjs'),
+        uglify       = require('gulp-uglify'),
         svgstore     = require('gulp-svgstore'),
         svgmin       = require('gulp-svgmin'),
         path         = require('path');
@@ -36,7 +36,7 @@ gulp.task('styles', function () {
     }).on('error', sass.logError))
     .pipe(rename({suffix: '.min', prefix : ''}))
     .pipe(autoprefixer({browsers: ['last 15 versions'], cascade: false}))
-    .pipe(minifycss())
+    .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.stream());
 });
@@ -57,7 +57,7 @@ gulp.task('scripts', function() {
 gulp.task('watch', function () {
     gulp.watch('scss/*.scss', ['styles']);
     gulp.watch('app/libs/**/*.js', ['scripts']);
-    gulp.watch('app/js/*.js').on("change", browserSync.reload);
+    gulp.watch('app/js/*.js').on('change', browserSync.reload);
     gulp.watch('app/*.html').on('change', browserSync.reload);
 });
 

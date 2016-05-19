@@ -1,6 +1,7 @@
 $(function() {
 
-	//Animation
+	//nav Scroll
+	//Animation lib
 	jQuery.easing['jswing'] = jQuery.easing['swing'];
 
 	jQuery.extend( jQuery.easing,
@@ -14,6 +15,14 @@ $(function() {
 			if ((t/=d/2) < 1) return c/2*t*t*t + b;
 			return c/2*((t-=2)*t*t + 2) + b;
 		},
+	});
+
+	//Scroll animate
+	$("a[href^='#']").click(function () {
+		var elementClick = $(this).attr("href")
+		var destination = $(elementClick).offset().top;
+		jQuery("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 700, "easeInOutCubic");
+		return false;
 	});
 	//SVG Fallback
 	if(!Modernizr.svg) {
@@ -49,13 +58,7 @@ $(function() {
 	} catch(err) {
 
 	};
-	//Scroll animate
-	$("a.scrollto").click(function () {
-		var elementClick = $(this).attr("href")
-		var destination = $(elementClick).offset().top;
-		jQuery("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 700, "easeInOutCubic");
-		return false;
-	});
+
 
 	$("img, a").on("dragstart", function(event) { event.preventDefault(); });
 
