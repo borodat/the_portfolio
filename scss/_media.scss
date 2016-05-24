@@ -10,6 +10,10 @@
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
   /* */
+  .third {
+    width: 100%;
+    padding-bottom: 56.25%;
+  }
 }
 
 /* Small Devices, Tablets */
@@ -34,6 +38,24 @@
     -o-animation: none !important;
     -ms-animation: none !important;
     animation: none !important;
+  }
+  .main-logo {
+    width: 100px;
+    float: none;
+    margin: 0 auto;
+  }
+  .main-nav {
+    text-align: center;
+    float: none;
+    ul {
+      padding: 0;
+    }
+    li {
+      margin: 0;
+    }
+  }
+  html {
+    font-size: 14px;
   }
 }
 

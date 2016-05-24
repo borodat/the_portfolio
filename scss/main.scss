@@ -62,13 +62,27 @@ body textarea:required:valid {
   }
 }
 
+img {
+  max-width: 100%;
+}
+
 .third {
   background-color: $accent-color;
-  border: 6px solid black;
+  border: 3px solid black;
   float: left;
-  width: 31.33333%;
-  height: 380px;
-  margin-right: 3%;
+  width: 32%;
+  margin-right: 2%;
+  margin-bottom: 35px;
+  overflow: hidden;
+
+  height: 0;
+  padding-bottom: 18.75%; /* 16:9 */
+  position: relative;
+  img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
   &:last-child {
     margin-right: 0;
   }
@@ -93,7 +107,7 @@ body {
 
 h1 {
   text-transform: uppercase;
-  font-size: 3em;
+  font-size: 3rem;
   text-align: center;
   margin-bottom: 0;
   margin-top: 20px;
@@ -126,9 +140,15 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
   }
-  .darken {
-    background: rgba(0,0,0,0.7);
-  }
+}
+.darken {
+  background: rgba(0,0,0,0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.25s ease;
 }
 
 .topline {
@@ -141,6 +161,17 @@ h1 {
   fill: $silver;
   stroke: $silver;
   float: left;
+  svg {
+    stroke: $silver;
+    fill: $silver;
+    transition: fill 0.25s ease, stroke 0.3s ease, transform 0.35s ease;
+    &:hover {
+      stroke: $accent-color;
+      fill: $accent-color;
+      transform: rotate(7deg);
+    }
+  }
+
 }
 
 .main-nav {
@@ -157,7 +188,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     display: block;
     padding: 10px;
     text-decoration: none;
@@ -190,16 +221,20 @@ h1 {
 //MAIN
 
 h2 {
-  font-size: 3em;
+  font-size: 3rem;
   text-align: center;
 }
 
 h3 {
   color: $h2-color;
   text-transform: uppercase;
-  font-size: 2.5em;
-  border-bottom: 4px solid darken($h2-color, 15%);
+  font-size: 2.5rem;
+  border-bottom: 3px solid $h2-color;
   margin-bottom: 50px;
+}
+
+a {
+  text-decoration: none;
 }
 
 section {
@@ -210,6 +245,64 @@ section {
 .about-me {
   background: $silver;
 }
+
+.portfolio {
+  .darken {
+    opacity: 0;
+  }
+}
+
+.gallery {
+  width: 100%;
+  height: 100%;
+  img {
+    transform: translateZ(0) scale(1.04);
+    transition: transform 0.5s ease;
+  }
+  &:hover {
+    .darken {
+      opacity: 1;
+    }
+    .btn-wrap {
+      opacity: 1;
+      bottom: 0;
+    }
+    img {
+      transform: translateZ(0) scale(1);
+
+    }
+  }
+  .btn {
+    display: block;
+    float: left;
+    width: 50%;
+    background-color: $accent-color;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $silver;
+    padding: 10px 0;
+    border-top: 3px solid black;
+    transition: background-color, 0.3s ease;
+    &:not(:last-child) {
+      border-right: 3px solid black;
+    }
+    &:hover {
+      background-color: darken($accent-color, 8%);
+    }
+  }
+}
+
+.btn-wrap {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+
 
 .bounceIn {
    @include bounceIn();

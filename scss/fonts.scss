@@ -1,3 +1,4 @@
 @import "bourbon";
 
-@include font-face("RobotoRegular", "../fonts/RobotoRegular/RobotoRegular", $file_formats: eot woff ttf);
+@include font-face("PT Sans", "../fonts/PTSansRegular/PTSansRegular", $file_formats: eot woff ttf);
+@include font-face("PT Sans", "../fonts/PTSansBold/PTSansBold", bold, $file_formats: eot woff ttf);
