@@ -1,9 +1,14 @@
 @import "bourbon";
 @import "vars.scss";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-size: 16px;
   min-width: 320px;
+  color: $black;
   position: relative;
   line-height: 1.6;
   font-family: "PT Sans", sans-serif;
@@ -12,4 +17,179 @@ body {
 
 .hidden {
   display: none;
+}
+
+//GRID
+
+.wrap {
+  // z-index: 22;
+  max-width: 1640px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  @include clearfix;
+}
+
+.row {
+  @include clearfix;
+}
+
+.half {
+  width: 48.5%;
+  float: left;
+  text-align: right;
+  ul {
+    list-style-type: none;
+  }
+
+  &:last-child {
+    margin-left: 3%;
+  }
+  &:nth-child(2n) {
+    text-align: left;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.third {
+  float: left;
+  width: 32%;
+  margin-right: 2%;
+  margin-bottom: 35px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+//HEADER
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $white;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main-header {
+  min-height: 600px;
+  height: 100vh;
+  padding-top: 50px;
+  color: $silver;
+  position: relative;
+  .bg {
+    background-color: #ccc;
+    background: url(/img/main.jpg) no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+  }
+  .wrap {
+    display: flex;
+    min-height: 600px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.darken {
+  background: rgba(0,0,0,0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.25s ease;
+}
+
+.topline {
+  padding: 15px;
+  @include clearfix;
+}
+
+.main-logo {
+  width: 150px;
+  fill: $silver;
+  stroke: $silver;
+  float: left;
+  svg {
+    stroke: $silver;
+    fill: $silver;
+    transition: fill 0.25s ease, stroke 0.3s ease, transform 0.35s ease;
+    &:hover {
+      stroke: $accent-color;
+      fill: $accent-color;
+      transform: rotate(7deg);
+    }
+  }
+
+}
+
+.main-nav {
+  float: right;
+  ul {
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+    margin: 15px;
+  }
+  a {
+    color: $silver;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.25s ease;
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.lead {
+  margin-top: 0;
+  color: $silver;
+  text-align: center;
+}
+
+.scroll-down {
+  margin-top: 100px;
+  bottom: 15px;
+  text-align: center;
+  a {
+    fill: $silver;
+    transition: fill 0.25s ease;
+    &:hover {
+      fill: $accent-color;
+    }
+  }
 }

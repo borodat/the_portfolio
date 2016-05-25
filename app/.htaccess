@@ -38,4 +38,10 @@ ExpiresByType application/xhtml+xml "access plus 600 seconds"
 
 </ifModule>
 
+# BEGIN GZIP
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+</ifmodule>
+# END GZIP
+
 ErrorDocument 404 /not_found.html

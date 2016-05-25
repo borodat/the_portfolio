@@ -12,7 +12,14 @@
   /* */
   .third {
     width: 100%;
-    padding-bottom: 56.25%;
+    // padding-bottom: 56.25%;
+  }
+  .half {
+    width: 100%;
+    text-align: center;
+    &:nth-child(2n) {
+      text-align: center;
+    }
   }
 }
 
