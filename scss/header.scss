@@ -89,6 +89,15 @@ h1 {
   margin-top: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: $accent-color;
+  transition: color 0.25s ease;
+  &:hover {
+    color: darken($accent-color, 20%)
+  }
+}
+
 .layer {
   position: absolute;
   bottom: 0;

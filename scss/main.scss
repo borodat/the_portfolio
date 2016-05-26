@@ -58,15 +58,6 @@ h4 {
   margin-top: 20px;
 }
 
-a {
-  text-decoration: none;
-  color: $accent-color;
-  transition: color 0.25s ease;
-  &:hover {
-    color: darken($accent-color, 20%)
-  }
-}
-
 section {
   background-color: $white;
   padding: 5px 0;
@@ -84,6 +75,10 @@ section {
 
 figure {
   margin: 0;
+}
+
+ul {
+  padding: 0;
 }
 
 .gallery {
